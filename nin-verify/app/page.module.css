@@ -1,0 +1,212 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #006400;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://i.ibb.co/zb6gbhC/n-jmk-k.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 2;
+}
+
+.cardIcon {
+  width: 30px;
+  height: 30px;
+  color: white;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
+}
+
+.content {
+  background-color: rgba(0, 100, 0, 0.8);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1;
+  max-width: 90%;
+  width: 400px;
+}
+
+.content h1 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 35px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkbox input:checked ~ .checkmark {
+  background-color: #4caf50;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.checkboxText {
+  margin-left: 10px;
+}
+
+.animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.circle {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.circle:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  left: -100px;
+  top: -100px;
+  animation: wave 10s linear infinite;
+}
+
+.circle:nth-child(2) {
+  width: 400px;
+  height: 400px;
+  right: -200px;
+  bottom: -200px;
+  animation: wave 15s linear infinite reverse;
+}
+
+.circle:nth-child(3) {
+  width: 300px;
+  height: 300px;
+  right: 30%;
+  top: 20%;
+  animation: wave 12s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spiral {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.checkbox .checkmark::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: spiral 2s linear infinite;
+}
+
+@media (max-width: 600px) {
+  .content {
+    padding: 1.5rem;
+    width: 90%;
+  }
+
+  .checkbox {
+    font-size: 16px;
+  }
+
+  .logo {
+    top: 10px;
+    left: 10px;
+  }
+
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
